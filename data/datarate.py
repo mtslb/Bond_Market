@@ -1,11 +1,12 @@
 from fredapi import Fred
 # import yfinance as yf
 import pandas as pd
-from api import FRED_API_KEY
+from utils.api import FRED_API_KEY
+from utils.constants import date_start
 
 # US YIELD CURVE
 fred = Fred(api_key=FRED_API_KEY)
-date_start = '2000-01-01'
+
 taux_1m = fred.get_series("DGS1MO", observation_start=date_start) 
 taux_3m = fred.get_series("DGS3MO", observation_start=date_start)
 taux_2y = fred.get_series("DGS2", observation_start=date_start)
